@@ -2,11 +2,45 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FiapFood.View.LoginPage"
+             Shell.FlyoutBehavior="Disabled"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="#FFDCDC"
              Title="LoginPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Login"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <Grid RowDefinitions="*,*">
+        <Image Source="logo.png" HeightRequest="150"></Image>
+        <Border Grid.Row="1" BackgroundColor="White">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20,20,0,0"></RoundRectangle>
+            </Border.StrokeShape>
+            <VerticalStackLayout Padding="20" Spacing="20">
+
+                <Entry Placeholder="E-mail"
+                       PlaceholderColor="Black"
+                       FontSize="Subtitle"
+                       Keyboard="Email"></Entry>
+
+                <Entry Placeholder="Senha"
+                    IsPassword="True"
+                    PlaceholderColor="Black"
+                    FontSize="Subtitle"></Entry>
+
+
+                <Button Text="Login" 
+                        BackgroundColor="#B80000"
+                        TextColor="White"
+                        FontSize="Medium"
+                        FontAttributes="Bold"
+                        Clicked="Button_Clicked"></Button>
+
+                <Label Text="Registrar" TextColor="#B80000" HorizontalOptions="Center">
+                    <Label.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                    </Label.GestureRecognizers>
+                </Label>
+                
+
+            </VerticalStackLayout>
+        </Border>
+    </Grid>
 </ContentPage>

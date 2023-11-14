@@ -4,11 +4,37 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:FiapFood"
-    Shell.FlyoutBehavior="Disabled">
+    xmlns:view="clr-namespace:FiapFood.View"
+    Shell.FlyoutBehavior="Flyout">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate local:MainPage}"
-        Route="MainPage" />
+
+    <ShellItem Route="LoginPage" FlyoutItemIsVisible="False">
+        <ShellContent Title="Login" ContentTemplate="{DataTemplate view:LoginPage}" />
+    </ShellItem>
+
+    <FlyoutItem Title="Home" Route="HomePage">
+        <ShellContent Title="Home Page" ContentTemplate="{DataTemplate view:HomePage}" />
+    </FlyoutItem>
+
+    <FlyoutItem Title="Produtos" Route="ProdutosPage">
+        <ShellContent ContentTemplate="{DataTemplate view:ProdutosPage}" />
+    </FlyoutItem>
+
+
+    <FlyoutItem Title="Lojas" Route="LojasPage">
+        <ShellContent ContentTemplate="{DataTemplate view:LojasPage}"/>
+    </FlyoutItem>
+
+    <FlyoutItem Title="Lojas" Route="LoginRegistroPage" FlyoutItemIsVisible="False">
+        <ShellContent ContentTemplate="{DataTemplate view:LoginRegistroPage}"/>
+    </FlyoutItem>
+
+    <Shell.FlyoutFooter>
+        <VerticalStackLayout>
+            <BoxView HeightRequest="1" Color="#ccc"></BoxView>
+            <Button Text="Logout" BackgroundColor="White" TextColor="Black" Clicked="Button_Clicked"></Button>
+        </VerticalStackLayout>
+    </Shell.FlyoutFooter>
+
 
 </Shell>

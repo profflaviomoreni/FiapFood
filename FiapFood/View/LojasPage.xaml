@@ -3,10 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FiapFood.View.LojasPage"
              Title="LojasPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout Spacing="20" Padding="20">
         <Label 
             Text="Lojas !"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" HeightRequest="80" />
+
+        <Button Text="Detalhe" Clicked="Button_Clicked"></Button>
     </VerticalStackLayout>
 </ContentPage>

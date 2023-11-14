@@ -8,5 +8,7 @@
             Text="Produtos Page!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <Button Text="Detalhe" Clicked="Button_Clicked"></Button>
     </VerticalStackLayout>
 </ContentPage>
