@@ -2,11 +2,324 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FiapFood.View.HomePage"
+             Padding="10"
              Title="HomePage">
-    <VerticalStackLayout>
+    <ContentPage.Resources>
+        <Style x:Key="FrameBotaoLoja" TargetType="Frame">
+            <Setter Property="BorderColor" Value="#e6e6e6"></Setter>
+            <Setter Property="BackgroundColor" Value="#e6e6e6"></Setter>
+            <Setter Property="CornerRadius" Value="4"></Setter>
+            <Setter Property="Margin" Value="2,2,2,2"></Setter>
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="FontSize" Value="Large"></Setter>
+            <Setter Property="FontAttributes" Value="Bold"></Setter>
+            <Setter Property="VerticalOptions" Value="CenterAndExpand"></Setter>
+        </Style>
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="80"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
         <Label 
-            Text="Home Page"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            Padding="2"
+            Grid.Row="0"
+            Grid.ColumnSpan="2"
+            Text="Olá, Flávio"/>
+
+        <Button
+            Padding="0"
+            Margin="0"
+            Grid.ColumnSpan="2"
+            Grid.Column="2"
+            Grid.Row="0"
+            HorizontalOptions="End"
+            WidthRequest="150"
+            HeightRequest="30"
+            BackgroundColor="#f5b5b5"
+            TextColor="#B80000"
+            CornerRadius="20"
+            FontAttributes="Bold"
+            FontSize="Micro"
+            Text="3 cupons para usar" />
+
+
+        <Frame
+            Grid.Row="1"
+            Grid.ColumnSpan="2"
+            Style="{StaticResource FrameBotaoLoja}">
+            <Grid>
+                <Label Grid.Column="0" Text="Restaurantes" FontSize="Small" FontAttributes="Bold" VerticalOptions="Center"></Label>
+                <Image Grid.Column="1" Source="restaurants.png" HorizontalOptions="EndAndExpand"></Image>
+            </Grid>
+        </Frame>
+
+        <Frame
+            Grid.Row="1"
+            Grid.Column="2"
+            Style="{StaticResource FrameBotaoLoja}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="supermarkets.png"></Image>
+                <Label Grid.Row="1" Text="Mercados" FontSize="Micro"></Label>
+            </Grid>
+        </Frame>
+
+        <Frame
+            Grid.Row="1"
+            Grid.Column="3"
+            Style="{StaticResource FrameBotaoLoja}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="drugstore.png"></Image>
+                <Label Grid.Row="1" Text="Farmacia" FontSize="Micro"></Label>
+            </Grid>
+        </Frame>
+
+
+        <Frame
+            Grid.Row="2"
+            Grid.Column="0"
+            Style="{StaticResource FrameBotaoLoja}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="petshop.png"></Image>
+                <Label Grid.Row="1" Text="Petshot" FontSize="Micro"></Label>
+            </Grid>
+        </Frame>
+
+        <Frame
+            Grid.Row="2"
+            Grid.Column="1"
+            Style="{StaticResource FrameBotaoLoja}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="beer.png"></Image>
+                <Label Grid.Row="1" Text="Bebidas" FontSize="Micro"></Label>
+            </Grid>
+        </Frame>
+
+        <Frame
+            Grid.Row="2"
+            Grid.Column="2"
+            Style="{StaticResource FrameBotaoLoja}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="supermarkets.png"></Image>
+                <Label Grid.Row="1" Text="Mercados" FontSize="Micro"></Label>
+            </Grid>
+        </Frame>
+
+        <Frame
+            Grid.Row="2"
+            Grid.Column="3"
+            Style="{StaticResource FrameBotaoLoja}">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                    <RowDefinition Height="15"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Image Grid.Row="0" Source="gourmet.png"></Image>
+                <Label Grid.Row="1" Text="Gourmet" FontSize="Micro"></Label>
+            </Grid>
+        </Frame>
+
+
+        <CarouselView 
+            IndicatorView="IndicatorCarousel"
+            Grid.Row="3" 
+            Grid.ColumnSpan="4" 
+            Margin="2,15,2,15">
+            <CarouselView.ItemsSource>
+                <x:Array Type="{x:Type x:String}">
+                    <x:String>promocao1.png</x:String>
+                    <x:String>promocao2.png</x:String>
+                    <x:String>promocao3.png</x:String>
+                </x:Array>
+            </CarouselView.ItemsSource>
+            <CarouselView.ItemTemplate>
+                <DataTemplate>
+                    <Frame CornerRadius="10" Padding="0">
+                        <Image Source="{Binding}" Aspect="AspectFill"/>
+                    </Frame>
+                </DataTemplate>
+            </CarouselView.ItemTemplate>
+        </CarouselView>
+
+        <IndicatorView x:Name="IndicatorCarousel" 
+            Grid.Row="4" 
+            Grid.ColumnSpan="4"
+            HorizontalOptions="Center"
+            Padding="0"
+            IndicatorColor="#f5b5b5"
+            SelectedIndicatorColor="#B80000"
+            Margin="2"/>
+
+
+        <Label 
+            Padding="10"
+            Grid.Row="5"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Text="Últimas lojas"  />
+
+        <Label 
+            Padding="10"
+            Grid.Row="5"
+            Grid.Column="3"
+            Grid.ColumnSpan="2"
+            Text="Ver mais" 
+            FontSize="Small"
+            TextColor="#B80000"
+            FontAttributes="Bold"
+            HorizontalOptions="End"
+            VerticalOptions="CenterAndExpand" />
+
+        <ScrollView 
+            Padding="10"
+            Orientation="Horizontal"
+            Grid.Row="6"
+            Grid.ColumnSpan="4">
+
+            <HorizontalStackLayout HeightRequest="120">
+                <Frame
+                    BorderColor="#fff"
+                    WidthRequest="100"
+                    Padding="1,10,1,0"
+                    Margin="0,0,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="78"></RowDefinition>
+                            <RowDefinition Height="12"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="place1.png"></Image>
+                        <Label 
+                            Grid.Row="1" 
+                            Text="Place 1" 
+                            FontSize="Micro" 
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="End"/>
+                    </Grid>
+                </Frame>
+
+                <Frame
+                    BorderColor="#fff"
+                    WidthRequest="100"
+                    Padding="1,10,1,0"
+                    Margin="0,0,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="78"></RowDefinition>
+                            <RowDefinition Height="12"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="place2.png"></Image>
+                        <Label 
+                            Grid.Row="1" 
+                            Text="Place 2" 
+                            FontSize="Micro" 
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="End"/>
+                    </Grid>
+                </Frame>
+
+                <Frame
+                    BorderColor="#fff"
+                    WidthRequest="100"
+                    Padding="1,10,1,0"
+                    Margin="0,0,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="78"></RowDefinition>
+                            <RowDefinition Height="12"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="place3.png"></Image>
+                        <Label 
+                            Grid.Row="1" 
+                            Text="Place 3" 
+                            FontSize="Micro" 
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="End"/>
+                    </Grid>
+                </Frame>
+
+                <Frame
+                    BorderColor="#fff"
+                    WidthRequest="100"
+                    Padding="1,10,1,0"
+                    Margin="0,0,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="78"></RowDefinition>
+                            <RowDefinition Height="12"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="place4.png"></Image>
+                        <Label 
+                            Grid.Row="1" 
+                            Text="Place 4" 
+                            FontSize="Micro" 
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="End"/>
+                    </Grid>
+                </Frame>
+
+                <Frame
+                    BorderColor="#fff"
+                    WidthRequest="100"
+                    Padding="1,10,1,0"
+                    Margin="0,0,0,0">
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="78"></RowDefinition>
+                            <RowDefinition Height="12"></RowDefinition>
+                        </Grid.RowDefinitions>
+                        <Image Grid.Row="0" Source="place5.png"></Image>
+                        <Label 
+                            Grid.Row="1" 
+                            Text="Place 5" 
+                            FontSize="Micro" 
+                            FontAttributes="Bold"
+                            HorizontalOptions="Center" 
+                            VerticalOptions="End"/>
+                    </Grid>
+                </Frame>
+
+            </HorizontalStackLayout>
+
+        </ScrollView>
+
+
+    </Grid>
+
 </ContentPage>

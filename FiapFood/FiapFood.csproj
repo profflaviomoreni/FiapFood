@@ -49,7 +49,27 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <None Remove="Resources\Images\beer.png" />
+	  <None Remove="Resources\Images\collectionview.png" />
+	  <None Remove="Resources\Images\delivery.png" />
+	  <None Remove="Resources\Images\drugstore.png" />
+	  <None Remove="Resources\Images\gourmet.png" />
+	  <None Remove="Resources\Images\listview.png" />
+	  <None Remove="Resources\Images\location-pin.png" />
+	  <None Remove="Resources\Images\location_pin.png" />
 	  <None Remove="Resources\Images\logo.png" />
+	  <None Remove="Resources\Images\petshop.png" />
+	  <None Remove="Resources\Images\place1.png" />
+	  <None Remove="Resources\Images\place2.png" />
+	  <None Remove="Resources\Images\place3.png" />
+	  <None Remove="Resources\Images\place4.png" />
+	  <None Remove="Resources\Images\place5.png" />
+	  <None Remove="Resources\Images\place6.png" />
+	  <None Remove="Resources\Images\promocao1.png" />
+	  <None Remove="Resources\Images\promocao2.png" />
+	  <None Remove="Resources\Images\promocao3.png" />
+	  <None Remove="Resources\Images\restaurants.png" />
+	  <None Remove="Resources\Images\supermarkets.png" />
 	</ItemGroup>
 
 	<ItemGroup>
