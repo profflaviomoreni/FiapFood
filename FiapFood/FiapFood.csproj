@@ -55,7 +55,6 @@
 	  <None Remove="Resources\Images\drugstore.png" />
 	  <None Remove="Resources\Images\gourmet.png" />
 	  <None Remove="Resources\Images\listview.png" />
-	  <None Remove="Resources\Images\location-pin.png" />
 	  <None Remove="Resources\Images\location_pin.png" />
 	  <None Remove="Resources\Images\logo.png" />
 	  <None Remove="Resources\Images\petshop.png" />
