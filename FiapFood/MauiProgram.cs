@@ -1,4 +1,7 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using FiapFood.View;
+using FiapFood.ViewModel;
+using Microsoft.Extensions.Logging;
+using CommunityToolkit.Maui;
 
 namespace FiapFood
 {
@@ -7,18 +10,16 @@ namespace FiapFood
         public static MauiApp CreateMauiApp()
         {
             var builder = MauiApp.CreateBuilder();
-            builder
-                .UseMauiApp<App>()
-                .ConfigureFonts(fonts =>
-                {
-                    fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
-                    fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-                });
-
+            builder.UseMauiApp<App>().ConfigureFonts(fonts =>
+            {
+                fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
+                fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+            }).UseMauiCommunityToolkit();
 #if DEBUG
-		builder.Logging.AddDebug();
+            builder.Logging.AddDebug();
 #endif
-
+            builder.Services.AddSingleton<LoginViewModel>();
+            builder.Services.AddSingleton<LoginPage>();
             return builder.Build();
         }
     }

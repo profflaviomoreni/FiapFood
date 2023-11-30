@@ -52,4 +52,13 @@ public partial class LojasPage : ContentPage
             var lojaSelecionada = e.CurrentSelection[0] as LojaResponse;
         }
     }
+
+    private void TextoBuscaTextChanged(object sender, TextChangedEventArgs e)
+    {
+        var lojasFiltradas = new ObservableCollection<LojaResponse>(
+                Lojas.Where(l => l.Tipo.ToLower().Contains(e.NewTextValue.ToLower()))
+            );
+
+        CollectionViewLojas.ItemsSource = lojasFiltradas;
+    }
 }

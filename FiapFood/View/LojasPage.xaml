@@ -21,10 +21,15 @@
             </Setter>
         </Style>
     </ContentPage.Resources>
+
+
+
+    <Grid RowDefinitions="60,*" Padding="10">
+        <SearchBar Grid.Row="0" 
+                   TextChanged="TextoBuscaTextChanged"
+                   x:Name="TextoBusca"></SearchBar>
         
-    
-    
-        <CollectionView x:Name="CollectionViewLojas" 
+        <CollectionView Grid.Row="1" x:Name="CollectionViewLojas" 
                         SelectionChanged="SelectionChanged"
                         SelectionMode="Single"
                         VerticalScrollBarVisibility="Always">
@@ -55,15 +60,15 @@
                             <Label  Text="{Binding Tipo}"
                                     FontSize="Small"/>
                             <HorizontalStackLayout>
-                            <Image Source="location_pin.png"
+                                <Image Source="location_pin.png"
                                     HorizontalOptions="Start"
                                     HeightRequest="15"
                                     WidthRequest="15"/>
-                            <Label FontSize="10" Text="{Binding Endereço}"></Label>
+                                <Label FontSize="10" Text="{Binding Endereço}"></Label>
                             </HorizontalStackLayout>
                         </VerticalStackLayout>
                         <VerticalStackLayout Grid.Column="2" Grid.Row="0">
-                        <Label HorizontalOptions="CenterAndExpand"
+                            <Label HorizontalOptions="CenterAndExpand"
                                    Text="{Binding ValorFrete, StringFormat='{0:C2}'}"
                                    WidthRequest="90"
                                    FontSize="Medium"
@@ -94,6 +99,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
-        
+    </Grid>
+
 
 </ContentPage>

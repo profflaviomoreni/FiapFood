@@ -15,12 +15,14 @@
             </Border.StrokeShape>
             <VerticalStackLayout Padding="20" Spacing="20">
 
-                <Entry Placeholder="E-mail"
-                       PlaceholderColor="Black"
-                       FontSize="Subtitle"
-                       Keyboard="Email"></Entry>
+                <Entry Text="{Binding Email}" 
+                        Placeholder="E-mail"
+                        PlaceholderColor="Black"
+                        FontSize="Subtitle"
+                        Keyboard="Email"></Entry>
 
-                <Entry Placeholder="Senha"
+                <Entry Text="{Binding Senha}"
+                    Placeholder="Senha"
                     IsPassword="True"
                     PlaceholderColor="Black"
                     FontSize="Subtitle"></Entry>
@@ -31,14 +33,20 @@
                         TextColor="White"
                         FontSize="Medium"
                         FontAttributes="Bold"
-                        Clicked="Button_Clicked"></Button>
+                        Command="{Binding LoginClickedCommand}"></Button>
 
                 <Label Text="Registrar" TextColor="#B80000" HorizontalOptions="Center">
                     <Label.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped"></TapGestureRecognizer>
+                        <TapGestureRecognizer 
+                            Command="{Binding RegistroClickedCommand}" />
                     </Label.GestureRecognizers>
                 </Label>
-                
+
+                <ActivityIndicator
+                    HorizontalOptions="Center"
+                    Color="#B80000"
+                    IsVisible="True"
+                    IsRunning="{Binding LoginProcessing}"/>
 
             </VerticalStackLayout>
         </Border>
