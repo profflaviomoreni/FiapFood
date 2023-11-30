@@ -4,8 +4,8 @@
              x:Class="FiapFood.View.LojaDetalhePage"
              Title="LojaDetalhePage">
     <VerticalStackLayout>
-        <Label 
-            Text="Loja Detalhe!"
+        <Label
+            Text="{Binding Loja.LojaName}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>

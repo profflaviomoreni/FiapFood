@@ -26,11 +26,13 @@
 
     <Grid RowDefinitions="60,*" Padding="10">
         <SearchBar Grid.Row="0" 
-                   TextChanged="TextoBuscaTextChanged"
-                   x:Name="TextoBusca"></SearchBar>
-        
-        <CollectionView Grid.Row="1" x:Name="CollectionViewLojas" 
-                        SelectionChanged="SelectionChanged"
+                   Text="{Binding Busca}"
+                   SearchCommand="{Binding BuscarCommand}"/>
+
+        <CollectionView Grid.Row="1" 
+                        ItemsSource="{Binding Lojas}"
+                        SelectedItem="{Binding LojaSelecionada}"
+                        SelectionChangedCommand="{Binding SelecionarLojaCommand}"
                         SelectionMode="Single"
                         VerticalScrollBarVisibility="Always">
             <CollectionView.ItemTemplate>

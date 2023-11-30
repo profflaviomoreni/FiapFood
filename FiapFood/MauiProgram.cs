@@ -20,6 +20,10 @@ namespace FiapFood
 #endif
             builder.Services.AddSingleton<LoginViewModel>();
             builder.Services.AddSingleton<LoginPage>();
+
+            builder.Services.AddSingleton<LojasViewModel>();
+            builder.Services.AddSingleton<LojasPage>();
+
             return builder.Build();
         }
     }
