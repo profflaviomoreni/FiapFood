@@ -1,26 +1,24 @@
 using FiapFood.Models;
+using FiapFood.ViewModel;
 
 namespace FiapFood.View;
 
-[QueryProperty("Loja", "Loja")]
 public partial class LojaDetalhePage : ContentPage
 {
 
-	private LojaResponse loja;
-
-	public LojaResponse Loja
-	{
-		get { return loja; }
-		set { 
-			loja = value; 
-			OnPropertyChanged();
-		}
-	}
+    //public LojaDetalheViewModel ParamLojaDetalheViewModel { get; set; }
 
 
-	public LojaDetalhePage()
+	public LojaDetalhePage(LojaDetalheViewModel lojaDetalheViewModel)
 	{
 		InitializeComponent();
-		BindingContext = this;
+		//if (ParamLojaDetalheViewModel == null)
+		//{
+            BindingContext = lojaDetalheViewModel;
+        //} else
+		//{
+        //    BindingContext = ParamLojaDetalheViewModel;
+        //}
+		
 	}
 }

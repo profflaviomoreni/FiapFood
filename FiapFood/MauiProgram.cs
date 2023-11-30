@@ -24,6 +24,9 @@ namespace FiapFood
             builder.Services.AddSingleton<LojasViewModel>();
             builder.Services.AddSingleton<LojasPage>();
 
+            builder.Services.AddSingleton<LojaDetalheViewModel>();
+            builder.Services.AddSingleton<LojaDetalhePage>();
+
             return builder.Build();
         }
     }

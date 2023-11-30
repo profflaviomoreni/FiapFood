@@ -35,8 +35,10 @@ namespace FiapFood.ViewModel
         {
             if (LojaSelecionada != null)
             {
+                //var paramLojaDetalheVM = new LojaDetalheViewModel(LojaSelecionada);
+
                 var navParameters = new Dictionary<string, object> { 
-                    { "Loja", LojaSelecionada } 
+                    { "Loja", LojaSelecionada} 
                 };
 
                 await Shell.Current.GoToAsync($"{nameof(LojaDetalhePage)}", navParameters);
