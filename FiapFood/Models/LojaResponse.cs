@@ -15,6 +15,10 @@
 
         public double ValorFrete { get; set; }
 
+        public double Latitude { get; set; }    
+
+        public double Longitude { get; set; }
+
         public LojaResponse()
         {
         }
@@ -28,5 +32,18 @@
             Endereço = endereço;
             ValorFrete = valorFrete;
         }
+
+        public LojaResponse(int lojaId, string lojaName, string logotipo, string tipo, string endereço, double valorFrete, double latitude, double longitude)
+        {
+            LojaId = lojaId;
+            LojaName = lojaName;
+            Logotipo = logotipo;
+            Tipo = tipo;
+            Endereço = endereço;
+            ValorFrete = valorFrete;
+            Latitude = latitude;
+            Longitude = longitude;  
+        }
+
     }
 }

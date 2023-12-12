@@ -2,6 +2,7 @@
 using FiapFood.ViewModel;
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
+using FiapFood.Services;
 
 namespace FiapFood
 {
@@ -26,6 +27,9 @@ namespace FiapFood
 
             builder.Services.AddSingleton<LojaDetalheViewModel>();
             builder.Services.AddSingleton<LojaDetalhePage>();
+
+            builder.Services.AddScoped<IUsuarioService,UsuarioService>();
+            builder.Services.AddScoped<ILojaService, LojaService>();
 
             return builder.Build();
         }

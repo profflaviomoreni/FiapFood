@@ -1,5 +1,7 @@
-﻿using CommunityToolkit.Mvvm.ComponentModel;
+﻿using CommunityToolkit.Maui.Alerts;
+using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
+using FiapFood.Services;
 using FiapFood.View;
 using System.ComponentModel;
 
@@ -8,6 +10,14 @@ namespace FiapFood.ViewModel
     [ObservableObject]
     public partial class LoginViewModel
     {
+
+        private readonly IUsuarioService _usuarioService;
+
+        public LoginViewModel(IUsuarioService usuarioService)
+        {
+            _usuarioService = usuarioService;        
+        }
+
 
         [ObservableProperty]
         private string email;
@@ -23,10 +33,27 @@ namespace FiapFood.ViewModel
         public async Task LoginClicked()
         {
             LoginProcessing = true;
-            await Task.Delay(2000);
-            LoginProcessing = false;
+            
+            try
+            {
+                if ( Xamarin.Essentials.Connectivity.NetworkAccess == Xamarin.Essentials.NetworkAccess.None )
+                {
+                    throw new Exception("Verifique sua conexão de rede");
+                }
 
-            await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+
+                var authResponse = await _usuarioService.Login(email, senha);
+
+                Preferences.Default.Set("Expires", authResponse.Expired);
+                Preferences.Default.Set("RefreshToken", authResponse.RefreshToken);
+
+                await Shell.Current.GoToAsync($"//{nameof(HomePage)}");
+            } catch (Exception ex) {
+                await Toast.Make($"Falha no login. Detalhe: {ex.Message}").Show();             
+            } finally { 
+                LoginProcessing = false; 
+            }
+            
         }
 
 

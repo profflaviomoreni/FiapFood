@@ -16,9 +16,5 @@ namespace FiapFood.ViewModel
         {
         }
 
-        public LojaDetalheViewModel(LojaResponse loja)
-        {
-            Loja = loja;
-        }
     }
 }
