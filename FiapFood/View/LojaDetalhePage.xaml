@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
              x:Class="FiapFood.View.LojaDetalhePage"
              Title="LojaDetalhePage">
     <VerticalStackLayout>
@@ -12,5 +13,12 @@
             Text="{Binding Loja.Logotipo}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
+
+        <maps:Map 
+            MapType="Satellite"
+            HeightRequest="500"
+            VerticalOptions="FillAndExpand" 
+            HorizontalOptions="FillAndExpand"></maps:Map>
+        
     </VerticalStackLayout>
 </ContentPage>
