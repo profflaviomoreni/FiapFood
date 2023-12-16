@@ -1,11 +1,15 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:uranium="clr-namespace:InputKit.Shared.Controls;assembly=InputKit.Maui"
+             xmlns:icon="clr-namespace:UraniumUI.Icons.MaterialIcons;assembly=UraniumUI.Icons.MaterialIcons"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
              x:Class="FiapFood.View.LoginPage"
              Shell.FlyoutBehavior="Disabled"
              Shell.NavBarIsVisible="False"
              BackgroundColor="#FFDCDC"
              Title="LoginPage">
+    
 
     <Grid RowDefinitions="*,*">
         <Image Source="logo.png" HeightRequest="150"></Image>
@@ -15,17 +19,26 @@
             </Border.StrokeShape>
             <VerticalStackLayout Padding="20" Spacing="20">
 
-                <Entry Text="{Binding Email}" 
-                        Placeholder="E-mail"
-                        PlaceholderColor="Black"
-                        FontSize="Subtitle"
-                        Keyboard="Email"></Entry>
+                <material:TextField
+                        Title="E-mail"
+                        AccentColor="#B80000"
+                        AllowClear="True"
+                        Icon="{FontImageSource FontFamily=MaterialRegular,
+                                               Glyph={x:Static icon:MaterialRegular.Email}}"
+                        Text="{Binding Email}">
+                </material:TextField>
 
-                <Entry Text="{Binding Senha}"
-                    Placeholder="Senha"
+
+
+                <material:TextField
+                    Title="Senha"
+                    AccentColor="#B80000"
+                    AllowClear="True"
                     IsPassword="True"
-                    PlaceholderColor="Black"
-                    FontSize="Subtitle"></Entry>
+                    Icon="{FontImageSource FontFamily=MaterialRegular,
+                                           Glyph={x:Static icon:MaterialRegular.Key}}"
+                    Text="{Binding Senha}">
+                </material:TextField>
 
 
                 <Button Text="Login" 

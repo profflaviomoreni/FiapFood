@@ -3,6 +3,7 @@ using FiapFood.ViewModel;
 using Microsoft.Extensions.Logging;
 using CommunityToolkit.Maui;
 using FiapFood.Services;
+using UraniumUI;
 
 namespace FiapFood
 {
@@ -15,8 +16,11 @@ namespace FiapFood
             {
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+                fonts.AddMaterialIconFonts();
             })
                 .UseMauiCommunityToolkit()
+                .UseUraniumUI()
+                .UseUraniumUIMaterial()
                 .UseMauiMaps();
 
 #if DEBUG

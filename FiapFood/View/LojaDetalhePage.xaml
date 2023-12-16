@@ -2,23 +2,221 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:maps="clr-namespace:Microsoft.Maui.Controls.Maps;assembly=Microsoft.Maui.Controls.Maps"
+             xmlns:behavior="clr-namespace:FiapFood.Behavior"
+             xmlns:aloha="clr-namespace:AlohaKit.Controls;assembly=AlohaKit"
              x:Class="FiapFood.View.LojaDetalhePage"
-             Title="LojaDetalhePage">
-    <VerticalStackLayout>
-        <Label
-            Text="{Binding Loja.LojaName}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-        <Label
-            Text="{Binding Loja.Logotipo}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+             Padding="0,0,0,0"
+             Title="{Binding Loja.LojaName}">
+    <Grid RowDefinitions="*,*" 
+          Padding="0,0,0,0"
+          VerticalOptions="StartAndExpand">
 
-        <maps:Map 
-            MapType="Satellite"
+        <maps:Map
             HeightRequest="500"
+            Grid.Row="0"
+            MapType="Street"
             VerticalOptions="FillAndExpand" 
-            HorizontalOptions="FillAndExpand"></maps:Map>
-        
-    </VerticalStackLayout>
+            HorizontalOptions="FillAndExpand">
+
+            <maps:Map.Behaviors>
+                <behavior:MapBehavior 
+                    IsReady="{Binding IsReady}" 
+                    Places="{Binding Locais}" >
+                </behavior:MapBehavior>
+            </maps:Map.Behaviors>
+            
+        </maps:Map>
+
+        <Border
+            HeightRequest="600"
+            VerticalOptions="StartAndExpand"
+            Grid.Row="1"
+            Margin="0,-90,0,-10"
+            BackgroundColor="White">
+            <Border.StrokeShape>
+                <RoundRectangle CornerRadius="20,20,20,20" />
+            </Border.StrokeShape>
+
+            <VerticalStackLayout Padding="30" VerticalOptions="StartAndExpand">
+
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="110" />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="{Binding Loja.LojaName}" FontSize="Large" FontAttributes="Bold" />
+                    <aloha:Rating Value="4" IsReadOnly="True" Grid.Column="1"></aloha:Rating>
+                </Grid>
+                <Label Text="{Binding Loja.Endereço}" FontSize="Subtitle" TextColor="Blue" FontAttributes="Bold" />
+
+                <Grid RowSpacing="5" Padding="10" ColumnSpacing="10">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="20" />
+                    </Grid.RowDefinitions>
+
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="130" />
+                        <ColumnDefinition Width="1" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="1" />
+                        <ColumnDefinition Width="70" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="Telefone" 
+                           Grid.Row="0" 
+                           Grid.Column="0" />
+                    <BoxView BackgroundColor="Gray" 
+                             HeightRequest="35" 
+                             Grid.RowSpan="2" 
+                             Grid.Column="1" />
+
+                    <Label Text="Distância" 
+                           Grid.Row="0" 
+                           Grid.Column="2" />
+                    <BoxView BackgroundColor="Gray" 
+                             WidthRequest="1"
+                             HeightRequest="35" 
+                             Grid.RowSpan="2" 
+                             Grid.Column="3" />
+
+                    <Label Text="Avaliação" 
+                           Grid.Row="0" 
+                           Grid.Column="4" />
+
+                    <Label Text="+55 11 5256-9852" 
+                           FontSize="15"
+                           FontAttributes="Bold" 
+                           Grid.Row="1" 
+                           Grid.Column="0" />
+
+                    <Label Text="2,3 km" 
+                           FontSize="15"
+                           FontAttributes="Bold" 
+                           Grid.Row="1" 
+                           Grid.Column="2" />
+
+                    <Label Text="4" 
+                           FontSize="15"
+                           FontAttributes="Bold" 
+                           Grid.Row="1" 
+                           Grid.Column="4" />
+
+
+
+                </Grid>
+
+
+                <Label></Label>
+
+
+                <HorizontalStackLayout HeightRequest="120">
+                    <Frame
+                        BorderColor="#fff"
+                        WidthRequest="120"
+                        Padding="1,10,1,0"
+                        Margin="0,0,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="78"></RowDefinition>
+                                <RowDefinition Height="12"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="destaque1.png"></Image>
+                            <Label 
+                                Grid.Row="1" 
+                                Text="Destaque 1" 
+                                FontSize="Micro" 
+                                FontAttributes="Bold"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="End"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        BorderColor="#fff"
+                        WidthRequest="120"
+                        Padding="1,10,1,0"
+                        Margin="0,0,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="78"></RowDefinition>
+                                <RowDefinition Height="12"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="destaque2.png"></Image>
+                            <Label 
+                                Grid.Row="1" 
+                                Text="Destaque 2" 
+                                FontSize="Micro" 
+                                FontAttributes="Bold"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="End"/>
+                        </Grid>
+                    </Frame>
+
+                    <Frame
+                        BorderColor="#fff"
+                        WidthRequest="120"
+                        Padding="1,10,1,0"
+                        Margin="0,0,0,0">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="78"></RowDefinition>
+                                <RowDefinition Height="12"></RowDefinition>
+                            </Grid.RowDefinitions>
+                            <Image Grid.Row="0" Source="destaque3.png"></Image>
+                            <Label 
+                                Grid.Row="1" 
+                                Text="Destaque 3" 
+                                FontSize="Micro" 
+                                FontAttributes="Bold"
+                                HorizontalOptions="Center" 
+                                VerticalOptions="End"/>
+                        </Grid>
+                    </Frame>
+
+                </HorizontalStackLayout>
+
+                <Label></Label>
+
+                <Grid Margin="5,0,5,0" ColumnSpacing="10">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Frame  Grid.Column="0"
+                            HeightRequest="100"
+                        Margin="2,2,2,2"
+                        BorderColor="#e6e6e6"
+                        BackgroundColor="#e6e6e6"
+                        CornerRadius="10">
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur" FontSize="10"></Label>
+                    </Frame>
+
+                    <Frame  Grid.Column="1"
+                        Margin="2,2,2,2"
+                        BorderColor="#e6e6e6"
+                        BackgroundColor="#e6e6e6"
+                        CornerRadius="10">
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur" FontSize="10"></Label>
+                    </Frame>
+
+                    <Frame  Grid.Column="2"
+                        Margin="2,2,2,2"
+                        BorderColor="#e6e6e6"
+                        BackgroundColor="#e6e6e6"
+                        CornerRadius="10">
+                        <Label Text="Lorem ipsum dolor sit amet, consectetur" FontSize="10"></Label>
+                    </Frame>
+                </Grid>
+
+            </VerticalStackLayout>
+
+
+
+        </Border>
+
+
+    </Grid>
 </ContentPage>
